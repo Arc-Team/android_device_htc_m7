@@ -356,10 +356,13 @@ PRODUCT_COPY_FILES += \
     device/htc/m7/prebuilt/vendor/lib/libCB.so:system/vendor/lib/libCB.so \
     device/htc/m7/prebuilt/vendor/lib/libgsl.so:system/vendor/lib/libgsl.so \
     device/htc/m7/prebuilt/vendor/lib/libllvm-qcom.so:system/vendor/lib/libllvm-qcom.so \
+    device/htc/m7/prebuilt/vendor/lib/libOpenCL.so:system/vendor/lib/libOpenCL.so \
     device/htc/m7/prebuilt/vendor/lib/librs_adreno_sha1.so:system/vendor/lib/librs_adreno_sha1.so \
     device/htc/m7/prebuilt/vendor/lib/librs_adreno.so:system/vendor/lib/librs_adreno.so \
     device/htc/m7/prebuilt/vendor/lib/libRSDriver_adreno.so:system/vendor/lib/libRSDriver_adreno.so \
-    device/htc/m7/prebuilt/vendor/lib/libsc-a3xx.so:system/vendor/lib/libsc-a3xx.so
+    device/htc/m7/prebuilt/vendor/lib/libsc-a3xx.so:system/vendor/lib/libsc-a3xx.so \
+    device/htc/m7/prebuilt/vendor/lib/libscale.so:system/vendor/lib/libscale.so \
+    device/htc/m7/prebuilt/vendor/lib/libuiblur.so:system/vendor/lib/libuiblur.so
 
 # Graphics firmware
 PRODUCT_COPY_FILES += \
