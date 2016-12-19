@@ -12,11 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
+ifneq ($(filter m7 m7att m7tmo m7ul,$(TARGET_DEVICE)),)
 
-ifneq ($(filter m7 m7att m7spr m7tmo m7ul m7vzw,$(TARGET_DEVICE)),)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(call my-dir))
 
 include $(CLEAR_VARS)
 
@@ -32,17 +30,10 @@ FIRMWARE_MDM_IMAGES := \
     sbl1.mbn \
     sbl2.mbn
 
-ifneq ($(filter m7 m7att m7tmo m7ul,$(TARGET_DEVICE)),)
 FIRMWARE_MDM_IMAGES += \
     htc61.mbn htc62.mbn htc63.mbn htc64.mbn htc65.mbn \
     htcnvbak.mbn htcrcust.mbn htcsmem.mbn \
     sbl1_82.mbn sbl1_92.mbn sbl1_96.mbn
-endif
-
-ifneq ($(filter m7spr m7vzw,$(TARGET_DEVICE)),)
-FIRMWARE_MDM_IMAGES += \
-    htccnv.mbn htcnvmfg.mbn htcuserd.mbn
-endif
 
 FIRMWARE_MDM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(FIRMWARE_MDM_IMAGES)))
 $(FIRMWARE_MDM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)

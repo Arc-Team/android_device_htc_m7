@@ -24,11 +24,31 @@ debug.egl.hw=1
 debug.mdpcomp.logs=0
 debug.sf.hw=1
 persist.hwc.mdpcomp.enable=true
+persist.sys.force_highendgfx=true
 ro.opengles.version=196608
 ro.sf.lcd_density=480
 
+# Hardware
+ro.device.chipset=Qualcomm APQ8064T Snapdragon 600
+ro.device.cpu_info=Quad-Core 1.7 GHz Krait 300
+ro.device.gpu=Adreno 320
+ro.device.front_cam=2.1 MP, 1080p@30fps, HDR
+ro.device.rear_cam=4 MP, 1080p@30fps, HDR
+ro.device.screen_res=4.7" 1080x1920 pixels (~469 ppi)
+
 # Input
 ro.input.noresample=1
+
+# Low-RAM
+config.disable_atlas=true
+dalvik.vm.jit.codecachesize=0
+ro.config.low_ram=true
+
+# Network
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+net.ppp0.dns1=8.8.8.8
+net.ppp0.dns2=8.8.4.4
 
 # NFC
 debug.nfc.fw_download=true
@@ -56,6 +76,15 @@ persist.timed.enable=true
 
 # Thermal
 persist.thermal.monitor=true
+
+# Tweaks
+persist.htc.checkin.errorreport=0
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+ro.config.htc.nocheckin=1
+ro.config.nocheckin=1
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
 
 # WiFi
 wifi.interface=wlan0

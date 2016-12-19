@@ -12,19 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Device Stuff
 $(call inherit-product, device/htc/m7/m7.mk)
 
-# Inherit CM full phone configuration
+# CM Stuff
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-# Enhanced NFC
+# NFC Stuff
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
-# Device naming
-PRODUCT_NAME := cm_m7
+# Bootanimation
+TARGET_BOOTANIMATION_NAME := 1080
 
-# Override build props
+# Device naming
+PRODUCT_DEVICE := m7
+PRODUCT_NAME := cm_m7
+PRODUCT_BRAND := htc
+PRODUCT_MODEL := One
+PRODUCT_MANUFACTURER := HTC
+
+# Device overrides
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="htc/m7_google/m7:5.1/LMY47O.H18/666675:user/release-keys" \
+    PRODUCT_NAME=m7 \
     BUILD_ID=LMY47O.H18 \
-    PRIVATE_BUILD_DESC="6.04.1700.18 CL536258 release-keys"
+    PRIVATE_BUILD_DESC="6.04.1700.18 CL536258 release-keys" \
+    BUILD_FINGERPRINT="htc/m7_google/m7:5.1/LMY47O.H18/666675:user/release-keys"
