@@ -97,7 +97,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 
 # General compilation flags
-TARGET_SPECIFIC_HEADER_PATH += device/htc/m7-common/include
+TARGET_SPECIFIC_HEADER_PATH += device/htc/m7/include
 USE_CLANG_PLATFORM_BUILD := true
 
 # Graphics
@@ -116,7 +116,6 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 # Recovery
 BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_RECOVERY_DEVICE_DIRS += device/htc/m7-common
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -129,7 +128,7 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += device/htc/m7-common/sepolicy
+BOARD_SEPOLICY_DIRS += device/htc/m7/sepolicy
 
 # Wifi
 BOARD_HOSTAPD_DRIVER             := NL80211
