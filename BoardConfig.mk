@@ -24,8 +24,88 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# inherit from common m7-common
--include device/htc/m7-common/BoardConfigCommon.mk
+# inherit from common msm8960
+-include device/htc/msm8960-common/BoardConfigCommon.mk
+
+LOCAL_PATH := device/htc/m7-common
+
+# Audio
+BOARD_HAVE_HTC_CSDCLIENT := true
+USE_CUSTOM_AUDIO_POLICY := 1
+
+# Bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+# Camera
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+
+# Charger
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+
+# CMHW
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
+
+# Filesystem
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
+
+# FM
+AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+
+# General compilation flags
+TARGET_SPECIFIC_HEADER_PATH += device/htc/m7-common/include
+USE_CLANG_PLATFORM_BUILD := true
+
+# Graphics
+HAVE_ADRENO_SOURCE := false
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+
+# Kernel
+BOARD_KERNEL_BASE := 0x80600000
+BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom user_debug=31
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
+TARGET_KERNEL_CONFIG := m7_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+TARGET_KERNEL_SOURCE := kernel/htc/msm8960
+
+# Recovery
+BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+TARGET_RECOVERY_DEVICE_DIRS += device/htc/m7-common
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+
+# SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += device/htc/m7-common/sepolicy
+
+# Wifi
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE                := bcmdhd
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcm4335_apsta_b0.bin"
+WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4335_p2p_b0.bin"
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA          := "/system/etc/firmware/fw_bcm4335_b0.bin"
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
+# inherit from the proprietary version
+-include vendor/htc/m7-common/BoardConfigVendor.mk
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := m7,m7att,m7tmo,m7ul
@@ -38,30 +118,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1946156032
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 27917287424
 BOARD_CACHEIMAGE_PARTITION_SIZE := 671088128
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-
-# cat /proc/emmc:
-# dev:        size     erasesize name
-# mmcblk0p19: 000ffa00 00000200 "misc"
-# mmcblk0p34: 00fffe00 00000200 "recovery"
-# mmcblk0p33: 01000000 00000200 "boot"
-# mmcblk0p35: 73fffc00 00000200 "system"
-# mmcblk0p26: 00140200 00000200 "local"
-# mmcblk0p36: 27fffe00 00000200 "cache"
-# mmcblk0p37: 680000000 00000200 "userdata"
-# mmcblk0p22: 01400000 00000200 "devlog"
-# mmcblk0p24: 00040000 00000200 "pdata"
-# mmcblk0p27: 00010000 00000200 "extra"
-# mmcblk0p31: 04b00200 00000200 "radio"
-# mmcblk0p16: 03c00400 00000200 "adsp"
-# mmcblk0p15: 00100000 00000200 "dsps"
-# mmcblk0p17: 007ffa00 00000200 "radio_config"
-# mmcblk0p20: 00400000 00000200 "modem_st1"
-# mmcblk0p21: 00400000 00000200 "modem_st2"
-# mmcblk0p28: 00100000 00000200 "cdma_record"
-# mmcblk0p18: 02000000 00000200 "reserve_1"
-# mmcblk0p30: 034ffa00 00000200 "reserve_2"
-# mmcblk0p32: 05fffc00 00000200 "reserve_3"
-# mmcblk0p29: 06069e00 00000200 "reserve"
 
 # inherit from the proprietary version
 -include vendor/htc/m7/BoardConfigVendor.mk

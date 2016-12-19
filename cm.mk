@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/htc/m7/full_m7.mk)
+$(call inherit-product, device/htc/m7/m7.mk)
 
 # Inherit CM full phone configuration
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
