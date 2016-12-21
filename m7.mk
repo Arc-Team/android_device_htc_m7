@@ -96,8 +96,7 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    Snap \
-    Gello
+    Snap
 
 # Default Properties
 ADDITIONAL_DEFAULT_PROPERTIES += \
