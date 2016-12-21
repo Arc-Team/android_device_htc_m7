@@ -38,6 +38,12 @@ ro.device.screen_res=4.7" 1080x1920 pixels (~469 ppi)
 # Input
 ro.input.noresample=1
 
+# Network
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+net.ppp0.dns1=8.8.8.8
+net.ppp0.dns2=8.8.4.4
+
 # NFC
 debug.nfc.fw_download=true
 debug.nfc.fw_boot_download=false
