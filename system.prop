@@ -38,6 +38,12 @@ ro.device.screen_res=4.7" 1080x1920 pixels (~469 ppi)
 # Input
 ro.input.noresample=1
 
+# Low-RAM
+config.disable_atlas=true
+dalvik.vm.jit.codecachesize=0
+persist.sys.force_highendgfx=true
+ro.config.low_ram=true
+
 # Network
 net.dns1=8.8.8.8
 net.dns2=8.8.4.4
