@@ -217,6 +217,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/m7/prebuilt/etc/init.d/81clean:system/etc/init.d/81clean
 
+# BSOD Killer
+PRODUCT_COPY_FILES += \
+    device/htc/m7/prebuilt/etc/init.d/89bsod:system/etc/init.d/89bsod
+
 # NFC
 PRODUCT_COPY_FILES += \
     device/htc/m7/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml
