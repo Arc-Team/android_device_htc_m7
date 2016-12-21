@@ -213,6 +213,10 @@ PRODUCT_COPY_FILES += \
     device/htc/m7/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
     device/htc/m7/prebuilt/vendor/lib/libqc-opt.so:system/vendor/lib/libqc-opt.so
 
+# Boot Cleaner
+PRODUCT_COPY_FILES += \
+    device/htc/m7/prebuilt/etc/init.d/81clean:system/etc/init.d/81clean
+
 # NFC
 PRODUCT_COPY_FILES += \
     device/htc/m7/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml
