@@ -27,6 +27,14 @@ persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196608
 ro.sf.lcd_density=480
 
+# Hardware
+ro.device.chipset=Qualcomm APQ8064T Snapdragon 600
+ro.device.cpu_info=Quad-Core 1.7 GHz Krait 300
+ro.device.gpu=Adreno 320
+ro.device.front_cam=2.1 MP, 1080p@30fps, HDR
+ro.device.rear_cam=4 MP, 1080p@30fps, HDR
+ro.device.screen_res=4.7" 1080x1920 pixels (~469 ppi)
+
 # Input
 ro.input.noresample=1
 
